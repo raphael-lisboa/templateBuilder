@@ -15,6 +15,26 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
         	$scope.templates = data;        
         	console.log(data);
     });
+
+    
+	$scope.getItens = function (template, callback) {
+		console.log(template);  
+            return $http({
+                url: 'listItens.json',
+                method: 'GET',
+                params: template.id
+            }).success(function(data){
+
+				console.log("oiiiii");
+               });
+        };
+   
+}]);
+
+myApp.controller("ListProperties", ['$scope', '$http',function($scope, $http) {
+	console.log("aeeeeee");
+	console.log($scope.templateModel);
+
 }]);
 
 
@@ -25,12 +45,15 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
 	<h2>Templates list</h2>
 	<form name="templateForm">
 		<label> templates</label>
-		 <select name="selTemplate" >
+		 <select name="selTemplate" data-ng-model="templateModel" ng-change="getItens(templateModel)" >
 		 	 <option value="">-- Select --</option>
-		 	 	 <option ng-repeat="template in templates "  value="{{template.name}}">{{template.name}}</option>
+		 	 	 <option ng-repeat="template in templates "  value="{{template.id}}" >{{template.name}}</option>
 		 	</select>
 				
+	<div ng->
 	
+	
+	</div>
 
 	</form>
 </body>
