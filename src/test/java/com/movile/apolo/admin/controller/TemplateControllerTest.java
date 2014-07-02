@@ -25,10 +25,10 @@ public class TemplateControllerTest {
         
         ModelMap model = new ModelMap();
         
-        controller.list(model);
         
         
-        assertNotNull(model.get("templates"));
+        
+        assertNotNull(controller.listJson(model));
         
     }
 
