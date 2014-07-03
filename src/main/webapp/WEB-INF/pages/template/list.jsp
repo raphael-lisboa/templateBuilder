@@ -41,6 +41,7 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
 	<h2>Templates list</h2>
 	
 
+<form name="templateForm" action="save" method="post" modelAttribute="itens">
 	
 		<label> templates</label>
 		 <select name="selTemplate" data-ng-model="templateModel" ng-change="getItens(templateModel)" >
@@ -49,7 +50,6 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
 		 	</select>
 				
 	<div ng-show="itens != null">
-<form name="templateForm" action="save" method="post" modelAttribute="itens">
 	<fieldset>
 	
 	<legend>Configurações</legend>

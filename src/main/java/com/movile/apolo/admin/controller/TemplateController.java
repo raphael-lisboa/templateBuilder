@@ -46,8 +46,8 @@ public class TemplateController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@RequestParam("templateItem") List<String> itens , @RequestParam("template") ,  ModelMap model) {    
-        System.out.println(itens);
+    public String save(@RequestParam("templateItem") List<String> itens , @RequestParam("selTemplate") Long templateID,  ModelMap model) {    
+        System.out.println(itens +" ---"+ templateID);
        return "result";
     }
 
