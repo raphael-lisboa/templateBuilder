@@ -56,7 +56,7 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
 	
 		<ul>
 			<li ng-repeat="item in itens">
-				<label>{{item.name}}</label> <input name="templateItem" />
+				<label>{{item.name}}</label> <input name="itens[{{item.name}}]" />
 			</li>
 		</ul>
 		</fieldset>

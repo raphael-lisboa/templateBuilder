@@ -1,10 +1,12 @@
 package com.movile.apolo.admin.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,7 +48,7 @@ public class TemplateController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String save(@RequestParam("templateItem") List<String> itens , @RequestParam("selTemplate") Long templateID,  ModelMap model) {    
+    public String save(@ModelAttribute  FormWapper itens , @RequestParam("selTemplate") Long templateID,  ModelMap model) {    
         System.out.println(itens +" ---"+ templateID);
        return "result";
     }
