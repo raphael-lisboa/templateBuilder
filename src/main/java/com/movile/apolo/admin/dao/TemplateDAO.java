@@ -7,5 +7,7 @@ import com.movile.apolo.admin.model.Template;
 public interface TemplateDAO {
     
     List<Template> listAll();
+    
+    Template find(Long id);
 
 }

@@ -17,25 +17,21 @@ myApp.controller("ListTemplates",['$scope', '$http',function($scope, $http) {
     });
 
     
-	$scope.getItens = function (template, callback) {
-		console.log(template);  
+	$scope.getItens = function (templateId, callback) {
+		console.log('chegou'+templateId);  
             return $http({
-                url: 'listItens.json',
-                method: 'GET',
-                params: template.id
+                url: 'find/'+templateId+'.json',
+                method: 'GET'
             }).success(function(data){
 
-				console.log("oiiiii");
+            	$scope.itens=data.itens;
+				console.log(data.itens);
                });
         };
    
 }]);
 
-myApp.controller("ListProperties", ['$scope', '$http',function($scope, $http) {
-	console.log("aeeeeee");
-	console.log($scope.templateModel);
 
-}]);
 
 
 </script>
@@ -50,9 +46,19 @@ myApp.controller("ListProperties", ['$scope', '$http',function($scope, $http) {
 		 	 	 <option ng-repeat="template in templates "  value="{{template.id}}" >{{template.name}}</option>
 		 	</select>
 				
-	<div ng->
+	<div ng-show="itens != null">
 	
+	<fieldset>
 	
+	<legend>Configurações</legend>
+	
+		<ul>
+			<li ng-repeat="item in itens">
+				<label>{{item.name}}</label> <input name="TemplateItem" />
+			</li>
+		</ul>
+		</fieldset>
+			<input type="submit" value="Salvar">
 	</div>
 
 	</form>
